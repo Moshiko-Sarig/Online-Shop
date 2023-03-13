@@ -1,0 +1,34 @@
+<form #f="ngForm" (ngSubmit)="addProduct()">
+  <div class="order-Continer">
+    <h1>Add New Product</h1>
+    <h3>Product Details:</h3>
+    <hr>
+    <label>Product Name:</label>&nbsp;
+    <input type="text" [(ngModel)]="newProduct.product_name" name="product_name" #product_name="ngModel" minlength="3"
+      required>
+    <span *ngIf="product_name.errors && (product_name.dirty || product_name.touched)">
+      <span *ngIf="product_name.errors.required">Missing name</span>
+      <span *ngIf="product_name.errors.minlength">Too Short need to be min 3 characters</span>
+    </span>
+    <br>
+    <label>Category ID:</label>&nbsp;
+    <select [(ngModel)]="newProduct.category_id" name="category_id" #category_id="ngModel">
+      <option *ngFor="let category of category" [value]="category.category_id">{{category.category_name}}</option>
+    </select>
+    <br>
+    <label>Product Price:</label>&nbsp;
+    <input type="number" [(ngModel)]="newProduct.product_price" name="product_price" #product_price="ngModel" required
+      minlength="1">
+    <span *ngIf="product_price.errors && (product_price.dirty || product_price.touched)">
+      <span *ngIf="product_price.errors.required">Missing Price</span>
+      <span *ngIf="product_price.errors.minlength">Too Short need to be min 1 character</span>
+    </span>
+    <br>
+    <label>Image:</label>&nbsp;
+    <hr>
+    <label>Product Picture:</label>&nbsp;
+    <input #imageControl type="file" accept="image/*" (change)="saveImage($event)" (blur)="imageBlur()" required>
+    <br><br>
+    <input type="submit" class="order-btn" value="Add New Product">
+  </div>
+</form>

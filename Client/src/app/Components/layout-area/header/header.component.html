@@ -1,0 +1,33 @@
+<div class="headr-main">
+    <div class="box-header">
+        <span><img src="../../../../assets/images/Logo-removebg-preview.png" alt="Not Found" class="logo-pic"></span>
+
+        <div class="contact-us-box">
+            <label class="contact-us-label">Contact us:</label>&nbsp;
+            <div>
+                <div class="info-span">Email</div>Unclemoshe@gmail.com
+            </div>
+            <div>
+                <div class="info-span">Phone-number</div> 0503068787
+            </div>
+        </div>
+
+        <div class="animate bounce header">Uncle Moshe's grocery store</div>
+        <div class="serch-bar">
+            <input type="text" placeholder="Search item" [(ngModel)]="product_name">
+            <button  (click)="getProductBySearch()" style="color:black;">Search</button>
+        </div>
+
+    </div>
+    <nav class="box-category">
+        <ul *ngIf="category">
+            <li *ngFor="let name of category"><span class="category"
+                    (click)="selectCategory(name.category_id)">{{name.category_name}}</span></li>
+        </ul>
+        <div *ngIf="isLoggedIn">
+            Welcome Back {{userInfo.user.user_first_name}}!
+            <br>
+            <button class="logout" (click)="logout()">Logout</button>
+        </div>
+    </nav>
+</div>

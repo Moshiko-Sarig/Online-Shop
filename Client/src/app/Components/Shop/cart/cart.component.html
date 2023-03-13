@@ -1,0 +1,57 @@
+<div class="container">
+  <input type="checkbox" id="cart-toggle">
+  <label for="cart-toggle" class="cart-btn">
+    <i class="fa fa-shopping-cart"></i>
+  </label>
+  <div class="cart-sidebar">
+    <div class="cart-header">
+      <i class="fa fa-shopping-cart"></i>
+      <h3>Shopping Cart</h3>
+      <label for="cart-toggle" class="close-btn">
+        <i class="fa fa-arrow-left"></i>
+      </label>
+    </div>
+    <div class="cart-body">
+      <div *ngIf="allCartItems">
+
+        <div *ngFor="let c of allCartItems; let i = index" [attr.data-index]="i">
+          <div>
+            <img *ngIf="product[i]?.product_picture" [src]="imageBaseUrl+product[i]?.product_picture" alt="Error">
+            <br>
+            Product: <span
+              [ngClass]="{mark: (router.url === '/order') && orderSearchWord!=''&& product[i]?.product_name.includes(orderSearchWord)}">{{product[i]?.product_name}}</span>
+            <br>
+            Price: <span
+              [ngClass]="{mark:(router.url === '/order') && orderSearchWord!=''&& c.general_price.toString().includes(orderSearchWord)}">{{c.general_price}}$</span>
+            <br>
+            Amount: <span
+              [ngClass]="{mark:(router.url === '/order') && orderSearchWord!=''&& getAmount(c.general_price ,product[i]?.product_price).toString().includes(orderSearchWord)}">{{getAmount(c.general_price
+              ,product[i]?.product_price)}} units</span>
+            <br>
+            <div *ngIf="!(router.url === '/order')">
+              <button class="delete" (click)="deleteCartItem(c.cart_item_id)">Delete Item</button>
+            </div>
+            <hr style="border: solid 2px black;">
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="!(router.url === '/order')">
+        <div *ngIf="allCartItems?.length != 0" class="cart-footer">
+
+          <button class="checkout-btn" routerLink="/order">Checkout</button>
+        </div>
+        <div *ngIf="allCartItems?.length == 0" style="font-size: 30px;" class="cart-footer">
+          The cart is empty add products to check out
+        </div>
+      </div>
+      <div *ngIf="(router.url === '/order')">
+        <button class="back-to-shop" routerLink="/products">Back To Shop</button>
+      </div>
+      <div *ngIf="(allCartItems?.length != 0)" >
+        <div *ngIf="router && router.url !== '/order'">
+          <button class="delete-all" (click)="deleteAllCartItems(cart_id)">Delete All Cart!</button>
+        </div>
+      </div>
+      <span class="totalPrice">Total Cart Price: <span style="color:blue">{{ getTotalPrice() }}$</span></span>
+    </div>

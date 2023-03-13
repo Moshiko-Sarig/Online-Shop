@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="register">
+    <h2>Register</h2>
+    <hr>
+    <form>
+      <div *ngIf="step === 1">
+        step 1:
+        <label>ID:</label>
+        <input type="number" name="user_id" [(ngModel)]="newUser.user_id" required>
+        <label>Email:</label>
+        <input type="email" name="user_email" [(ngModel)]="newUser.user_email" required>
+        <label>Password:</label>
+        <input type="password" name="user_password" [(ngModel)]="newUser.user_password" required>
+        <label>Confirm Password:</label>
+        <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+        <br>
+        <button (click)="nextStep()">Next Step</button>
+      </div>
+      <div *ngIf="step === 2">
+        step 2:
+        <label>First Name:</label>
+        <input type="text" name="first_name" [(ngModel)]="newUser.user_first_name" required>
+        <label>Last Name:</label>
+        <input type="text" name="last_name" [(ngModel)]="newUser.user_last_name" required>
+        <label>City:</label>
+        <select style="text-align: center;" name="user_city" [(ngModel)]="newUser.user_city">
+          <option value="*">None</option>
+          <option value="Jerusalem">Jerusalem</option>
+          <option value="Tel-Aviv">Tel Aviv-Yafo</option>
+          <option value="Haifa">Haifa</option>
+          <option value="Rishon-LeZion">Rishon LeZion</option>
+          <option value="Petah-Tikva">Petah Tikva</option>
+          <option value="Ashdod">Ashdod</option>
+          <option value="Netanya">Netanya</option>
+          <option value="Beer-Sheva">Beer Sheva</option>
+          <option value="Holon">Holon</option>
+          <option value="Bnei-Brak">Bnei Brak</option>
+        </select>
+        <label>Street:</label>
+        <input type="text" name="user_street" [(ngModel)]="newUser.user_street" required>
+        <br>
+        <button (click)="nextStep()">Submit</button>
+      </div>
+    </form>
+    <p>Have an account? <br>
+      <a class="Login"  routerLink="/">Login</a>
+    </p>
+  </div>
+</div>

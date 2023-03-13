@@ -1,0 +1,8 @@
+<section>
+    <header *ngIf="!(isLoginRoute || isRegisterRoute || isNotFoundRoute || isOrderRoute)">
+        <app-header></app-header>
+    </header>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+</section>

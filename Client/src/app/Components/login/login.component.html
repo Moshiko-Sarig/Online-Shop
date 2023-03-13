@@ -1,0 +1,74 @@
+<div class="test">
+  <h1 class="title ">Welcome to the landing page on the website of Uncle Moshe's store</h1>
+  <div class="container">
+    <div class="login">
+      <h2>Login <i class="fas fa-sign-in-alt"></i></h2>
+      <form>
+        <label>Email:</label>
+        <input type="email" name="user_email" [(ngModel)]="loginUser.user_email">
+        <label>Password:</label>
+        <input type="password" name="user_password" [(ngModel)]="loginUser.user_password">
+        <br>
+        <button (click)="loginSubmit()" style="font-size: 15px;">Submit</button>
+      </form>
+      <p>Don't have an account? <br>
+        <a [routerLink]="['/register']" style="color: white;">Register</a>
+      </p>
+    </div>
+
+    <div class="about-us">
+      <h2>About Me</h2>
+      <p>"I am Moshiko Sarig, the creator of Uncle Moshe's Store, a full-stack grocery e-commerce web application. As a
+        22-year-old tech
+        enthusiast from Maale Adumim,<br>
+        <br>
+        I used MySQL, Node.js, and Angular to bring my vision to life. My goal is to make grocery shopping easier and
+        more convenient for everyone. <br>
+        <br>
+        Thank you for visiting and I hope you enjoy using Uncle Moshe's Store."
+      </p>
+    </div>
+    <div class="information">
+      <h2>Information</h2>
+      <div style="text-align: justify;">
+        <div>Number of Orders in the website so far: <br>
+          <span style="font-size: 30px;">{{ orders ? orders : 0 }}</span>
+          Orders.
+        </div>
+        <div>Number of Products in our grocery store: <br>
+          <span style="font-size: 30px;">{{ products ? products : 0}}</span> Products.
+        </div>
+        <br>
+        <div *ngIf="cart && cart.length > 0" style="color: yellow;">
+          <div  style="color: yellow;">
+            You have an open cart! <br>
+            Since Date: {{formatDate(cart[0].cart_creation_date)}}
+            <br>
+            <button routerLink="/products" style="font-size: 20px;">Continue Shopping</button>
+          </div>
+        </div>
+
+        <div *ngIf="!cart || cart.length === 0">
+          <div *ngIf="order && order.length > 0" style="color: yellow;">
+            Your last order is:
+            <div *ngFor="let o of order">
+              Price: {{o.total_price}}$ <br>
+              Delivery City: {{o.delivery_city}}<br>
+              Delivery Street: {{o.delivery_street}}<br>
+              Date For Delivery: {{formatDate(o.date_for_delivery)}}<br>
+              Order Date: {{formatDate(o.order_date)}}<br>
+              <button routerLink="/products" style="font-size: 20px;">Start Shopping</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="!loginUser && (!cart || cart.length===0) && (!order || order.length===0)" style="color:yellow">
+        Welcome to your first shopping! <br>
+        <button routerLink="/products" style="font-size: 20px;">Begin Shopping</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>

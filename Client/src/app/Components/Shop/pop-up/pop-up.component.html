@@ -1,0 +1,11 @@
+<div class="popup-background"  *ngIf="selectedProduct">
+    <div class="popup-content" *ngIf="selectedProduct">
+        <img [src]="imageBaseUrl + selectedProduct.product_picture" alt="Error">
+        <p class="name">Product: {{selectedProduct.product_name}}</p>
+        <p class="price">Price: {{selectedProduct.product_price}}$</p>
+        <label >Amount:</label>
+        <input type="number" [(ngModel)]="amount">
+        <button class="add-to-cart" (click)="addToCart()">Add to Cart</button>
+        <button class="close-button" (click)="closePopup()">Close</button>
+    </div>
+</div>

@@ -1,0 +1,180 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.cart-btn {
+    display: inline-block;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    border: 1px solid #0074D9;
+    padding: 10px 20px;
+    background-color: #0074D9;
+    color: #fff;
+    border-radius: 5px 0 0 5px;
+    cursor: pointer;
+}
+
+.cart-btn i {
+    font-size: 24px;
+}
+
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    left: -400px;
+    bottom: 0;
+    width: 400px;
+    background-color: #fff;
+    box-shadow: 4px 4px 15px #ccc;
+    overflow: auto;
+    transition: left 0.2s ease-in-out;
+}
+
+#cart-toggle:checked~.cart-sidebar {
+    left: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 3px solid #ccc;
+}
+
+.cart-header i {
+    font-size: 24px;
+}
+
+.cart-header h3 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.close-btn {
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.cart-body {
+    padding: 20px;
+    font-size: 20px;
+
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    left: -9999px;
+}
+
+.cart-btn:hover {
+    background-color: #7da4da;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background-color: rgba(181, 174, 174, 0.494);
+    cursor: pointer;
+}
+
+img {
+    width: 50%;
+    height: 50%;
+}
+
+.delete {
+    padding: 10px 20px;
+    background-color:red;
+    color: black;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.delete:hover {
+    background-color: rgba(255, 0, 0, 0.47);
+    color: black;
+}
+
+.checkout-btn {
+    padding: 10px 20px;
+    background-color: green;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 25px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.checkout-btn:hover {
+    background-color: rgba(11, 158, 6, 0.565);
+    color: #fff;
+}
+
+.cart-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+}
+
+.totalPrice {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    display: block;
+    margin: 0 auto;
+}
+
+.back-to-shop {
+    padding: 10px 20px;
+    background-color: rgb(181, 21, 199);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 25px;
+    cursor: pointer;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.back-to-shop:hover {
+    background-color: rgba(181, 21, 199, 0.59);
+    color: #fff;
+}
+.delete-all {
+    position: relative;
+    left: 95px;
+    padding: 10px 20px;
+    background-color: #ffe900;
+    color: black;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.delete-all:hover {
+    background-color: red;
+    color: black;
+}
+
+.mark
+{
+  background-color: #ffe900;
+}

@@ -1,0 +1,53 @@
+<div class="headr-main">
+    <div class="box-header">
+        <span><img src="../../../../assets/images/Logo-removebg-preview.png" alt="Not Found" class="logo-pic"></span>
+
+        <div class="contact-us-box">
+            <label class="contact-us-label">Contact us:</label>&nbsp;
+            <div>
+                <div class="info-span">Email</div>Unclemoshe@gmail.com
+            </div>
+            <div>
+                <div class="info-span">Phone-number</div> 0503068787
+            </div>
+        </div>
+
+        <div class="animate bounce header">Uncle Moshe's grocery store</div>
+        <div class="serch-bar">
+            <input type="text" placeholder="Search item" (input)="orderSearchInputChanged()" [(ngModel)]="searchOrder">
+            <button style="color:black;">Search</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isLoggedIn" class="welcome-back-container" style="float: right;">
+    <div class="welcome-back-box">
+      <h1>Welcome Back {{userInfo.user.user_first_name}}!</h1>
+      <button class="logout" (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+<div class="order-Continer">
+    <h1>order</h1>
+    <h3>Shopping Details:</h3>
+    <hr>
+    <label>City:</label>&nbsp;
+    <input type="text"[(ngModel)]="city" (focus)="fillCity()">
+    <br>
+    <label>Street:</label>&nbsp;
+    <input type="text" [(ngModel)]="street" (focus)="fillStreet()">
+    <br>
+    <label>Shopping Date:</label>&nbsp;
+    <input type="date" [(ngModel)]="shoppingDate" (change)="validateDate()">
+    <br>
+    <label>Payments:</label>&nbsp;
+    <hr>
+    <label>Credit Card:</label>&nbsp;
+    <input type="number"[(ngModel)]="credit_card">
+    <br><br>
+    <button class="order-btn" (click)="createOrder()">Order</button>
+</div>
+
+<app-cart></app-cart>
+
+

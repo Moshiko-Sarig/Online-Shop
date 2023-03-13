@@ -1,0 +1,40 @@
+.popup-background {
+    position: absolute;
+    top:10%;
+    left: 25%;
+    width: 50%;
+    height:60%;
+
+  }
+  
+ input,button{
+  border: solid black 3px;
+  font-size: 25px;
+ }
+
+   img{
+    width: 70%;
+    height: 70%;
+   }
+  .popup-content {
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: gray;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }

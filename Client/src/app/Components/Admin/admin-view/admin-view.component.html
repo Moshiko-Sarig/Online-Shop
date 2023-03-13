@@ -1,0 +1,56 @@
+<div class="container" *ngIf="products && products.length > 0">
+  <div *ngFor="let p of products">
+    <div class="card" (click)="selectedProduct = p">
+      <img [src]=" imageBaseUrl+p.product_picture" alt="Error">
+      <p class="name">Product: {{p.product_name}}</p>
+      <p class="price">Price: {{p.product_price}}$</p>
+      <button class="add-to-cart" (click)="selectedProduct = p">Edit Product</button>
+    </div>
+  </div>
+</div>
+
+<div class="container2">
+  <input type="checkbox" id="cart-toggle">
+  <label for="cart-toggle" class="cart-btn">
+    <i class="fas fa-plus-circle"></i>
+  </label>
+  <div class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Edit Product</h3>
+      <label for="cart-toggle" class="close-btn">
+        <i class="fa fa-arrow-left"></i>
+      </label>
+    </div>
+    <div class="cart-body">
+      <div>
+        <div *ngIf="selectedProduct">
+          <form #f="ngForm" (ngSubmit)="onSubmit()">
+            <div>
+              Product ID: <input type="text" readonly #selectedProduct.product_id="ngModel" [(ngModel)]="selectedProduct.product_id"
+                (click)="showReadOnlyMessage=true" name="product_id">
+              <span *ngIf="showReadOnlyMessage" style="color: red;">This field is read-only</span>
+              <br>
+              Category ID: <input type="text" readonly #selectedProduct.category_id="ngModel" [(ngModel)]="selectedProduct.category_id"
+                (click)="showReadOnlyMessage=true" name="category_id">
+              <span *ngIf="showReadOnlyMessage" style="color: red;">This field is read-only</span>
+              <br>
+              Product Name: <input type="text" #selectedProduct.product_name="ngModel" [(ngModel)]="selectedProduct.product_name" name="productName">
+              <br>
+              Product Price: <input type="text" [value]="selectedProduct.product_price"
+                [(ngModel)]="selectedProduct.product_price" name="product_price" #selectedProduct.product_price="ngModel">$
+              <br>
+              Product Image: <input #imageControl type="file" accept="image/*" (change)="saveImage($event)"
+                (blur)="imageBlur()" required>
+              <br>
+              <input value="Save Changes" type="submit" class="checkout-btn">
+              <hr color="black">
+            </div>
+          </form>
+        </div>
+        <div class="cart-footer">
+          <button routerLink="/add-product" class="add-to-cart">Add New Product</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

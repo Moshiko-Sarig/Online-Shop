@@ -1,0 +1,19 @@
+<div class="container" *ngIf="products && products.length > 0">
+  <div *ngFor="let p of products">
+    <div class="card" (click)="openModal(p)">
+      <img [src]="imageBaseUrl + p.product_picture" alt="Error">
+      <p class="name">Product: {{p.product_name}}</p>
+      <p class="price">Price: {{p.product_price}}$</p>
+      <button class="add-to-cart" (click)="openModal(p)">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<app-cart></app-cart>
+<app-pop-up [selectedProduct]="selectedProduct" (onAddToCart)="refreshProducts()"></app-pop-up>
+<div *ngIf="!products || products.length === 0" class="box">
+  <p>It looks like you are not logged in.</p>
+  Click here to login &nbsp;
+  <br>
+  <button [routerLink]="['/']">Login</button>
+</div>

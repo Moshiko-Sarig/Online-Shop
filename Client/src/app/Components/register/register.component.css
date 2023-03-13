@@ -1,0 +1,120 @@
+.container {
+    text-align: center;
+    color: whitesmoke;
+    font-size: 2vw;
+    font-family: monospace;
+    background-image: url('../../../assets/images/vecteezy_fingerprint-identity-sensor-data-protection-system-podium_7164537.jpg');
+    font-weight: 600;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+
+.register {
+    background-color: rgba(47, 47, 47, 0.687);
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(213, 189, 175, 0.2);
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 1rem;
+    font-size: 22px;
+}
+
+select {
+    border: 1px solid rgb(213, 189, 175);
+    border-radius: 20px;
+    background-color: rgb(245, 235, 224);
+    padding: 1rem;
+    margin-top: 0.5rem;
+
+}
+
+input {
+    border: 1px solid rgb(213, 189, 175);
+    border-radius: 20px;
+    background-color: rgb(245, 235, 224);
+    padding: 1rem;
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
+button {
+    color: black;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-top: 1rem;
+    padding: 1rem;
+    width: 100%;
+    background-color: rgb(245, 235, 224);
+    border: 2px solid rgb(213, 189, 175);
+    font-size: 17px;
+}
+
+button:hover {
+    background-color: burlywood;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+@media screen and (min-width: 768px) {
+    .register {
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .register {
+        width: 50%;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+/* styles for the second inner div */
+.register>form>div:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register>form>div:last-child label {
+    margin-top: 1rem;
+}
+
+.register>form>div:last-child input {
+    width: 50%;
+}
+
+@media screen and (min-width: 768px) {
+    .register>form>div:last-child input {
+        width: 35%;
+    }
+}
+
+.Login{
+    color:white;
+}
+.Login:hover {
+    color: rgb(209, 118, 27);
+    cursor: pointer;
+}
